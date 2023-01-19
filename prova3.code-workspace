@@ -1,5 +1,5 @@
 {
-	"folders": [
+  "folders": [
     {
       "name": "discovery-server",
       "path": "discovery-server"
@@ -12,5 +12,8 @@
       "name": "paciente",
       "path": "paciente"
     }
-  ]
+  ],
+  "settings": {
+    "java.configuration.updateBuildConfiguration": "interactive"
+  }
 }
