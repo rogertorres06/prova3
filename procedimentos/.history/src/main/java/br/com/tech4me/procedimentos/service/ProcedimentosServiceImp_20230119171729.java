@@ -57,14 +57,14 @@ public class ProcedimentosServiceImp {
     }
 
     @Override
-    public Optional<ProcedimentosDto> atualizarPedidoPorId(String id, ProcedimentosDto dto) {
-        Optional<Procedimentos> retorno = repository.findById(id);
+    public Optional<ProcedimentosDto> atualizarPedidoPorId(String id, PedidoDto dto) {
+        Optional<Pedido> retorno = repository.findById(id);
 
         if(retorno.isPresent()){
-            Procedimentos pedidoRetorno = new ModelMapper().map(dto, Procedimentos.class);
+            Pedido pedidoRetorno = new ModelMapper().map(dto, Pedido.class);
             pedidoRetorno.setId(id);
             repository.save(pedidoRetorno);
-            return Optional.of(new ModelMapper().map(pedidoRetorno, ProcedimentosDto.class));
+            return Optional.of(new ModelMapper().map(pedidoRetorno, PedidoDto.class));
         }else{
             return Optional.empty();
         }

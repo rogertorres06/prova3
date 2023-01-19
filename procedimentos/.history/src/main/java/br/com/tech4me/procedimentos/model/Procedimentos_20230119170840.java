@@ -22,7 +22,7 @@ public class Procedimentos {
         return receituario;
     }
     public void setReceituário(String receituário) {
-        this.receituario = receituário;
+        this.receituário = receituário;
     }
     public String getEncaminhamento() {
         return encaminhamento;

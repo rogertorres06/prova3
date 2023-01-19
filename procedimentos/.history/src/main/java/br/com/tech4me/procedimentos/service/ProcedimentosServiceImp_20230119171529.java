@@ -11,7 +11,6 @@ import br.com.tech4me.procedimentos.httpclient.ProcedimentosClient;
 import br.com.tech4me.procedimentos.model.Procedimentos;
 import br.com.tech4me.procedimentos.repository.ProcedimentosRepository;
 import br.com.tech4me.procedimentos.shared.ProcedimentosCompletoDto;
-import br.com.tech4me.procedimentos.shared.ProcedimentosDto;
 
 @Service
 public class ProcedimentosServiceImp {
@@ -25,16 +24,16 @@ public class ProcedimentosServiceImp {
     @Override
     public List<ProcedimentosCompletoDto> obterPedidos() {
         List<Procedimentos> pedidos = repository.findAll();
-        List<ProcedimentosCompletoDto> dto = pedidos.stream().map(p -> new ModelMapper().map(p, ProcedimentosCompletoDto.class)).collect(Collectors.toList());
+        List<PedidoCompletoDto> dto = pedidos.stream().map(p -> new ModelMapper().map(p, PedidoCompletoDto.class)).collect(Collectors.toList());
         return dto;
     }
 
     @Override
-    public Optional<ProcedimentosDto> obterPedidoPorId(String id) {
+    public Optional<PedidoDto> obterPedidoPorId(String id) {
         
-        Optional<Procedimentos> pedido = repository.findById(id);
+        Optional<Pedido> pedido = repository.findById(id);
         if(pedido.isPresent()){
-            ProcedimentosDto pedidoComPizza = new ModelMapper().map(pedido, ProcedimentosDto.class);
+            PedidoDto pedidoComPizza = new ModelMapper().map(pedido, PedidoDto.class);
            pedidoComPizza.setDadosPizza (pizzariaClient.obterPizza(pedidoComPizza.getIdPizza()));
            ////
             return Optional.of(pedidoComPizza);
@@ -49,22 +48,22 @@ public class ProcedimentosServiceImp {
     }
 
     @Override
-    public ProcedimentosCompletoDto CadastrarPedido(ProcedimentosCompletoDto dto) {
-        Procedimentos pedido = new ModelMapper().map(dto, Procedimentos.class);
+    public PedidoCompletoDto CadastrarPedido(PedidoCompletoDto dto) {
+        Pedido pedido = new ModelMapper().map(dto, Pedido.class);
 
         repository.save(pedido);
-        return new ModelMapper().map(pedido,ProcedimentosCompletoDto.class);
+        return new ModelMapper().map(pedido,PedidoCompletoDto.class);
     }
 
     @Override
-    public Optional<ProcedimentosDto> atualizarPedidoPorId(String id, ProcedimentosDto dto) {
-        Optional<Procedimentos> retorno = repository.findById(id);
+    public Optional<PedidoDto> atualizarPedidoPorId(String id, PedidoDto dto) {
+        Optional<Pedido> retorno = repository.findById(id);
 
         if(retorno.isPresent()){
-            Procedimentos pedidoRetorno = new ModelMapper().map(dto, Procedimentos.class);
+            Pedido pedidoRetorno = new ModelMapper().map(dto, Pedido.class);
             pedidoRetorno.setId(id);
             repository.save(pedidoRetorno);
-            return Optional.of(new ModelMapper().map(pedidoRetorno, ProcedimentosDto.class));
+            return Optional.of(new ModelMapper().map(pedidoRetorno, PedidoDto.class));
         }else{
             return Optional.empty();
         }

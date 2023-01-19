@@ -61,10 +61,10 @@ public class ProcedimentosServiceImp {
         Optional<Procedimentos> retorno = repository.findById(id);
 
         if(retorno.isPresent()){
-            Procedimentos pedidoRetorno = new ModelMapper().map(dto, Procedimentos.class);
+            Procedimentos pedidoRetorno = new ModelMapper().map(dto, P.class);
             pedidoRetorno.setId(id);
             repository.save(pedidoRetorno);
-            return Optional.of(new ModelMapper().map(pedidoRetorno, ProcedimentosDto.class));
+            return Optional.of(new ModelMapper().map(pedidoRetorno, PedidoDto.class));
         }else{
             return Optional.empty();
         }

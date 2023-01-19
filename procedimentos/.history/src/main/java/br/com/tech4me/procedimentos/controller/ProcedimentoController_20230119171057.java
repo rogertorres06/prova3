@@ -66,7 +66,7 @@ public class ProcedimentoController {
     //Atualizar pedido
     @PutMapping("/{id}")
     public ResponseEntity<ProcedimentosDto> atualizarPedido(@PathVariable String id, @Valid ProcedimentosDto pedido){
-        Optional<ProcedimentosDto> retorno = servico.atualizarPedidoPorId(id, pedido);
+        Optional<PedidoDto> retorno = servico.atualizarPedidoPorId(id, pedido);
 
         if(retorno.isPresent()){
             return new ResponseEntity<>(retorno.get(),HttpStatus.ACCEPTED);

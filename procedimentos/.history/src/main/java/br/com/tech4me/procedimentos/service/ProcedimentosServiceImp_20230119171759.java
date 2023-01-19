@@ -64,7 +64,7 @@ public class ProcedimentosServiceImp {
             Procedimentos pedidoRetorno = new ModelMapper().map(dto, Procedimentos.class);
             pedidoRetorno.setId(id);
             repository.save(pedidoRetorno);
-            return Optional.of(new ModelMapper().map(pedidoRetorno, ProcedimentosDto.class));
+            return Optional.of(new ModelMapper().map(pedidoRetorno, PedidoDto.class));
         }else{
             return Optional.empty();
         }

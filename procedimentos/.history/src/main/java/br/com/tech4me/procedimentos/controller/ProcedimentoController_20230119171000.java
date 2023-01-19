@@ -44,9 +44,9 @@ public class ProcedimentoController {
 
     //Buscar pedido por id
     @GetMapping("/{id}")
-    public ResponseEntity<ProcedimentosDto> obterPedidoPorId(@PathVariable String id)
+    public ResponseEntity<PedidoDto> obterPedidoPorId(@PathVariable String id)
     {
-        Optional<ProcedimentosDto> retorno = servico.obterPedidoPorId(id);
+        Optional<PedidoDto> retorno = servico.obterPedidoPorId(id);
         
         if(retorno.isPresent()){
             return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
@@ -65,8 +65,8 @@ public class ProcedimentoController {
 
     //Atualizar pedido
     @PutMapping("/{id}")
-    public ResponseEntity<ProcedimentosDto> atualizarPedido(@PathVariable String id, @Valid ProcedimentosDto pedido){
-        Optional<ProcedimentosDto> retorno = servico.atualizarPedidoPorId(id, pedido);
+    public ResponseEntity<PedidoDto> atualizarPedido(@PathVariable String id, @Valid PedidoDto pedido){
+        Optional<PedidoDto> retorno = servico.atualizarPedidoPorId(id, pedido);
 
         if(retorno.isPresent()){
             return new ResponseEntity<>(retorno.get(),HttpStatus.ACCEPTED);

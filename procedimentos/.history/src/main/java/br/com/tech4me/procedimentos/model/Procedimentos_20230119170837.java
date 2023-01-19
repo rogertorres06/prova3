@@ -19,10 +19,10 @@ public class Procedimentos {
         this.id = id;
     }
     public String getReceituario() {
-        return receituario;
+        return receituário;
     }
     public void setReceituário(String receituário) {
-        this.receituario = receituário;
+        this.receituário = receituário;
     }
     public String getEncaminhamento() {
         return encaminhamento;
