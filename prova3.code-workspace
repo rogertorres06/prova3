@@ -11,6 +11,10 @@
     {
       "name": "paciente",
       "path": "paciente"
+    },
+    {
+      "name": "procedimentos",
+      "path": "procedimentos"
     }
   ],
   "settings": {
