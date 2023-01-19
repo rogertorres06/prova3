@@ -1,10 +1,5 @@
 package br.com.tech4me.procedimentos.service;
 
-import java.util.List;
-import java.util.Optional;
-import br.com.tech4me.procedimentos.shared.ProcedimentosCompletoDto;
-import br.com.tech4me.procedimentos.shared.ProcedimentosDto;
-
 public class ProcedimentosService {
     
     ProcedimentosCompletoDto cadastrar(ProcedimentosCompletoDto dto);

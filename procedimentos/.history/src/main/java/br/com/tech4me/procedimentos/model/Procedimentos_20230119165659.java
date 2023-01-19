@@ -1,6 +1,5 @@
 package br.com.tech4me.procedimentos.model;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("procedimentos")

@@ -5,8 +5,6 @@ public class Paciente {
     private String nome;
     private String tipoSanguineo;
     private String sexo;
-
-    
     public String getNome() {
         return nome;
     }

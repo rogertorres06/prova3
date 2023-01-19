@@ -1,9 +1,8 @@
-package br.com.tech4me.procedimentos.shared;
+package br.com.tech4me.procedimentos.model;
 
-public class ProcedimentosDto {
-    
+public class Procedimentos {
+ 
     private String id;
     private String receituário;
     private String encaminhamento;
-
 }

@@ -1,17 +1,16 @@
 package br.com.tech4me.procedimentos.model;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("procedimentos")
 public class Procedimentos {
-    @Id 
+ 
     private String id;
     private String receituário;
     private String encaminhamento;
     private String atestado;
 
-
+    
     public String getId() {
         return id;
     }

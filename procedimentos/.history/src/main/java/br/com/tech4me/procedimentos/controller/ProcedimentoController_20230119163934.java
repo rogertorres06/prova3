@@ -1,7 +1,6 @@
 package br.com.tech4me.procedimentos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,9 +20,9 @@ public class ProcedimentoController {
     
    //Cadastrar pedido
    @PostMapping
-   public ResponseEntity<ProcedimentosCompletoDto> cadastrarPaciente(@RequestBody @Valid ProcedimentosCompletoDto procedimentos)
+   public ResponseEntity<ProcedimentosCompletoDto> cadastrarPaciente(@RequestBody @Valid ProcedimentosCompletoDto pedido)
    {
-       return new ResponseEntity<>(servico.cadastrarPaciente(procedimentos),HttpStatus.CREATED);
+       return new ResponseEntity<>(servico.CadastrarNome(nome),HttpStatus.CREATED);
    }  
     
 }
