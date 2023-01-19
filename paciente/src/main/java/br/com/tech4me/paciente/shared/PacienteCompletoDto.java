@@ -1,11 +1,14 @@
 package br.com.tech4me.paciente.shared;
 
+import jakarta.validation.constraints.Size;
+
 public class PacienteCompletoDto {
     private String id;
     private String nome;
     private String sobreNome;
     private String tipoSanguineo;
     private String sexo;
+    @Size(min=11, max= 11, message ="Informe CPF com 11 digitos")
     private String cpf;
 
     
