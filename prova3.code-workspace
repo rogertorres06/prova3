@@ -1,0 +1,16 @@
+{
+	"folders": [
+    {
+      "name": "discovery-server",
+      "path": "discovery-server"
+    },
+    {
+      "name": "gateway",
+      "path": "gateway"
+    },
+    {
+      "name": "paciente",
+      "path": "paciente"
+    }
+  ]
+}
