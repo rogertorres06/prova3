@@ -16,17 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tech4me.procedimentos.service.ProcedimentosService;
+import br.com.tech4me.procedimentos.shared.ProcedimentosCompletoDto;
+import br.com.tech4me.procedimentos.shared.ProcedimentosDto;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/procedimentos")
 public class ProcedimentoController {
-
     @Autowired
     private ProcedimentosService servico;
-    
-    @Autowired
-    private PedidoService servico;
 
     //Cadastrar pedido
     @PostMapping
@@ -37,19 +35,19 @@ public class ProcedimentoController {
 
     //Buscar Pedidos
     @GetMapping
-    public ResponseEntity<List<ProcedimentosCompletoDto>> obterPedidos()
+    public ResponseEntity<List<ProcedimentosCompletoDto>> obterProcedimentos()
     {
-        return new ResponseEntity<>(servico.obterPedidos(),HttpStatus.OK);
+        return new ResponseEntity<>(servico.obterProcedimentos(),HttpStatus.OK);
     } 
 
     //Buscar pedido por id
     @GetMapping("/{id}")
-    public ResponseEntity<ProcedimentosDto> obterPedidoPorId(@PathVariable String id)
+    public ResponseEntity<ProcedimentosDto> obterProcedimentoPorId(@PathVariable String id)
     {
-        Optional<ProcedimentosDto> retorno = servico.obterPedidoPorId(id);
+        Optional<ProcedimentosDto> retorno = servico.obterProcedimentoPorId(id);
         
         if(retorno.isPresent()){
-            return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
+            return new ResponseEntity<>(retorno.get(), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }    
@@ -57,16 +55,16 @@ public class ProcedimentoController {
 
     //Deletar Pedido
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluirPedido(@PathVariable String id)
+    public ResponseEntity<Void> excluirProcedimento(@PathVariable String id)
     {
-        servico.excluirPedido(id);
+        servico.excluirProcedimento(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     //Atualizar pedido
     @PutMapping("/{id}")
-    public ResponseEntity<ProcedimentosDto> atualizarPedido(@PathVariable String id, @Valid ProcedimentosDto pedido){
-        Optional<ProcedimentosDto> retorno = servico.atualizarPedidoPorId(id, pedido);
+    public ResponseEntity<ProcedimentosDto> atualizarProcedimento(@PathVariable String id, @Valid ProcedimentosDto pedido){
+        Optional<ProcedimentosDto> retorno = servico.atualizarProcedimentoPorId(id, pedido);
 
         if(retorno.isPresent()){
             return new ResponseEntity<>(retorno.get(),HttpStatus.ACCEPTED);

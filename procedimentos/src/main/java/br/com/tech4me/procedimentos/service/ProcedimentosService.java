@@ -7,9 +7,9 @@ import br.com.tech4me.procedimentos.shared.ProcedimentosDto;
 
 public interface ProcedimentosService {
     
-    ProcedimentosCompletoDto cadastrar(ProcedimentosCompletoDto dto);
-    List<ProcedimentosCompletoDto>obterTodos();
-    Optional<ProcedimentosDto> obterPorId(String id);
-    void excluirPorId(String id);
-    Optional<ProcedimentosCompletoDto> atualizarPorId(String id, ProcedimentosCompletoDto dto);
+    ProcedimentosCompletoDto CadastrarPaciente(ProcedimentosCompletoDto dto);
+    List<ProcedimentosCompletoDto>obterProcedimentos();
+    Optional<ProcedimentosDto> obterProcedimentoPorId(String id);
+    void excluirProcedimento(String id);
+    Optional<ProcedimentosDto> atualizarProcedimentoPorId(String id ,ProcedimentosDto dto);
 }

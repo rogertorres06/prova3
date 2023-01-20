@@ -37,7 +37,7 @@ public class PacienteController {
     public ResponseEntity<List<PacienteCompletoDto>> obterPacientes(){
         return new ResponseEntity<>(servico.obterTodos(), HttpStatus.OK);
     }
-//buscar paciente por id
+    //buscar paciente por id
     @GetMapping("/{id}")
     public ResponseEntity<PacienteDto> obterPacienteId(@PathVariable String id){
         Optional<PacienteDto> retorno = servico.obterPorId(id);

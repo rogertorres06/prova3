@@ -1,5 +1,8 @@
 package br.com.tech4me.procedimentos.model;
 
+
+
+
 public class Paciente {
     
     private String nome;
@@ -25,6 +28,9 @@ public class Paciente {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    
+ 
 
     
     
