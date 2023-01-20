@@ -5,6 +5,7 @@ public class PacienteDto {
     private String nome;
     private String sobreNome;
     private String tipoSanguineo;
+    private String sexo;
     
     public String getId() {
         return id;
@@ -29,5 +30,11 @@ public class PacienteDto {
     }
     public void setTipoSanguineo(String tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
+    }
+    public String getSexo() {
+        return sexo;
+    }
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 }
