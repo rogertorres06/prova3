@@ -1,5 +1,7 @@
 package br.com.tech4me.procedimentos.httpClient;
 
+
+
 import org.springframework.cloud.openfeign.FeignClient;
 
 import br.com.tech4me.procedimentos.model.Paciente;
