@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.tech4me.procedimentos.model.Procedimentos;
 import br.com.tech4me.procedimentos.service.ProcedimentosService;
 import br.com.tech4me.procedimentos.shared.ProcedimentosCompletoDto;
 import br.com.tech4me.procedimentos.shared.ProcedimentosDto;
@@ -62,8 +64,8 @@ public class ProcedimentoController {
 
     //Atualizar pedido
     @PutMapping("/{id}")
-    public ResponseEntity<ProcedimentosDto> atualizarProcedimento(@PathVariable String id, @Valid ProcedimentosDto procedimentos){
-        Optional<ProcedimentosDto> retorno = servico.atualizarProcedimentoPorId(id, procedimentos);
+    public ResponseEntity<ProcedimentosDto> atualizarProcedimento(@PathVariable String id, @Valid ProcedimentosDto pedido){
+        Optional<ProcedimentosDto> retorno = servico.atualizarProcedimentoPorId(id, Procedime);
 
         if(retorno.isPresent()){
             return new ResponseEntity<>(retorno.get(),HttpStatus.ACCEPTED);

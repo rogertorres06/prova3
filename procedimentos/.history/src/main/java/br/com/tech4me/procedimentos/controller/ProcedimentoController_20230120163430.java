@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.tech4me.procedimentos.model.Procedimentos;
 import br.com.tech4me.procedimentos.service.ProcedimentosService;
 import br.com.tech4me.procedimentos.shared.ProcedimentosCompletoDto;
 import br.com.tech4me.procedimentos.shared.ProcedimentosDto;
