@@ -2,10 +2,12 @@ package br.com.tech4me.procedimentos.service;
 
 import java.util.List;
 import java.util.Optional;
+
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.com.tech4me.procedimentos.httpClient.ProcedimentosClient;
 import br.com.tech4me.procedimentos.model.Procedimentos;
 import br.com.tech4me.procedimentos.repository.ProcedimentosRepository;
