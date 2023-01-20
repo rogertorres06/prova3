@@ -25,21 +25,21 @@ public class ProcedimentoController {
     @Autowired
     private ProcedimentosService servico;
 
-    //Cadastrar pedido
+    //Cadastrar procedimento
     @PostMapping
     public ResponseEntity<ProcedimentosCompletoDto> cadastrarPaciente(@RequestBody @Valid ProcedimentosCompletoDto procedimentos)
     {
         return new ResponseEntity<>(servico.CadastrarPaciente(procedimentos),HttpStatus.CREATED);
     }
 
-    //Buscar Pedidos
+    //Buscar procedimento
     @GetMapping
     public ResponseEntity<List<ProcedimentosCompletoDto>> obterProcedimentos()
     {
         return new ResponseEntity<>(servico.obterProcedimentos(),HttpStatus.OK);
     } 
 
-    //Buscar pedido por id
+    //Buscar procedimento
     @GetMapping("/{id}")
     public ResponseEntity<ProcedimentosDto> obterProcedimentoPorId(@PathVariable String id)
     {
@@ -52,7 +52,7 @@ public class ProcedimentoController {
         }    
     }
 
-    //Deletar Pedido
+    //Deletar Procedimento
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirProcedimento(@PathVariable String id)
     {
@@ -60,7 +60,7 @@ public class ProcedimentoController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    //Atualizar pedido
+    //Atualizar procedimento
     @PutMapping("/{id}")
     public ResponseEntity<ProcedimentosDto> atualizarProcedimento(@PathVariable String id, @Valid ProcedimentosDto procedimentos){
         Optional<ProcedimentosDto> retorno = servico.atualizarProcedimentoPorId(id, procedimentos);
