@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.com.tech4me.procedimentos.service.ProcedimentosService;
-import br.com.tech4me.procedimentos.shared.ProcedimentosCompletoDto;
+import br.com.tech4me.procedimentos.shared.ProcedimentosEscritaDto;
 import br.com.tech4me.procedimentos.shared.ProcedimentosDto;
 import jakarta.validation.Valid;
 
@@ -25,51 +26,49 @@ public class ProcedimentoController {
     @Autowired
     private ProcedimentosService servico;
 
-    //Cadastrar procedimento
+    // Cadastrar procedimento
     @PostMapping
-    public ResponseEntity<ProcedimentosCompletoDto> cadastrarPaciente(@RequestBody @Valid ProcedimentosCompletoDto procedimentos)
-    {
-        return new ResponseEntity<>(servico.CadastrarPaciente(procedimentos),HttpStatus.CREATED);
+    public ResponseEntity<ProcedimentosEscritaDto> cadastrarProcedimento(
+            @RequestBody @Valid ProcedimentosEscritaDto procedimentos) {
+        return new ResponseEntity<>(servico.CadastrarProcedimento(procedimentos), HttpStatus.CREATED);
     }
 
-    //Buscar procedimento
+    // Buscar procedimento
     @GetMapping
-    public ResponseEntity<List<ProcedimentosCompletoDto>> obterProcedimentos()
-    {
-        return new ResponseEntity<>(servico.obterProcedimentos(),HttpStatus.OK);
-    } 
-
-    //Buscar procedimento
-    @GetMapping("/{id}")
-    public ResponseEntity<ProcedimentosDto> obterProcedimentoPorId(@PathVariable String id)
-    {
-        Optional<ProcedimentosDto> retorno = servico.obterProcedimentoPorId(id);
-        
-        if(retorno.isPresent()){
-            return new ResponseEntity<>(retorno.get(), HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }    
+    public ResponseEntity<List<ProcedimentosDto>> obterProcedimentos() {
+        return new ResponseEntity<>(servico.obterProcedimentos(), HttpStatus.OK);
     }
 
-    //Deletar Procedimento
+    // Buscar procedimento
+    @GetMapping("/{id}")
+    public ResponseEntity<ProcedimentosDto> obterProcedimentoPorId(@PathVariable String id) {
+        Optional<ProcedimentosDto> retorno = servico.obterProcedimentoPorId(id);
+
+        if (retorno.isPresent()) {
+            return new ResponseEntity<>(retorno.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    // Deletar Procedimento
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluirProcedimento(@PathVariable String id)
-    {
+    public ResponseEntity<Void> excluirProcedimento(@PathVariable String id) {
         servico.excluirProcedimento(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    //Atualizar procedimento
+    // Atualizar procedimento
     @PutMapping("/{id}")
-    public ResponseEntity<ProcedimentosDto> atualizarProcedimento(@PathVariable String id, @Valid ProcedimentosDto procedimentos){
-        Optional<ProcedimentosDto> retorno = servico.atualizarProcedimentoPorId(id, procedimentos);
+    public ResponseEntity<ProcedimentosEscritaDto> atualizarProcedimento(@PathVariable String id,
+            @RequestBody @Valid ProcedimentosEscritaDto procedimentos) {
+        Optional<ProcedimentosEscritaDto> retorno = servico.atualizarProcedimentoPorId(id, procedimentos);
 
-        if(retorno.isPresent()){
-            return new ResponseEntity<>(retorno.get(),HttpStatus.ACCEPTED);
-        }else{
+        if (retorno.isPresent()) {
+            return new ResponseEntity<>(retorno.get(), HttpStatus.ACCEPTED);
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
-    } 
-    
+    }
+
 }

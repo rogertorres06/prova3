@@ -9,8 +9,15 @@ public class ProcedimentosDto {
     private Paciente dadosPaciente;
     private String receituario;
     private String encaminhamento;
+    private String atestado;
 
     
+    public String getAtestado() {
+        return atestado;
+    }
+    public void setAtestado(String atestado) {
+        this.atestado = atestado;
+    }
     public String getId() {
         return id;
     }
